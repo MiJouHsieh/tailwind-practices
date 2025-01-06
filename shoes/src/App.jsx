@@ -1,6 +1,6 @@
 import {Nav} from './components/Nav'
 import {ShoeDetail} from './components/ShoeDetail'
-import { Card } from "./components/Card";
+import { NewArrivalsSection } from "./components/NewArrivalsSection";
 import { SHOE_LIST } from "./constant"
 
 export function App() {
@@ -8,7 +8,7 @@ export function App() {
     <div className="animate-fadeIn p-10 xl:px-24">
       <Nav />
       <ShoeDetail />
-      <Card item={SHOE_LIST[0]}/>
+      <NewArrivalsSection items={SHOE_LIST} />
     </div>
   );
 }
