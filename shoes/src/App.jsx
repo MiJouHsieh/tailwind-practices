@@ -1,13 +1,22 @@
-import {Nav} from './components/Nav'
-import {ShoeDetail} from './components/ShoeDetail'
+import { Nav } from "./components/Nav";
+import { ShoeDetail } from "./components/ShoeDetail";
 import { NewArrivalsSection } from "./components/NewArrivalsSection";
 import { Sidebar } from "./components/Sidebar";
-import { SHOE_LIST } from "./constant"
-import {useState} from 'react'
-import { CartItem } from "./components/CartItem";
+import { SHOE_LIST } from "./constant";
+import { useState } from "react";
+import { Cart } from "./components/Cart";
+
+const FAKE_CART_ITEMS = SHOE_LIST.map((shoe) => {
+  return {
+    product: shoe,
+    qty: 1,
+    size: 44,
+  };
+});
 
 export function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="animate-fadeIn p-10 xl:px-24">
       <Nav onClickShoppingBtn={() => setIsSidebarOpen(true)} />
@@ -17,10 +26,7 @@ export function App() {
         isOpen={isSidebarOpen}
         onClickClose={() => setIsSidebarOpen(false)}
       >
-        <h2 className="mbb-10 text-2xl font-bold">Cart</h2>
-        <CartItem item={SHOE_LIST[0]} />
-        <CartItem item={SHOE_LIST[1]} />
-        <CartItem item={SHOE_LIST[2]} />
+        <Cart cartItems={FAKE_CART_ITEMS} />
       </Sidebar>
     </div>
   );
