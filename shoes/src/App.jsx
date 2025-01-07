@@ -7,16 +7,9 @@ import { SHOE_LIST } from "./constant";
 import { useState, useEffect } from "react";
 import { Cart } from "./components/Cart";
 
-const FAKE_CART_ITEMS = SHOE_LIST.map((shoe) => {
-  return {
-    product: shoe,
-    qty: 1,
-    size: 44,
-  };
-});
-
 export function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [currentShoe, setCurrentShoe] = useState(SHOE_LIST[1]);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("isDarkMode");
@@ -35,15 +28,15 @@ export function App() {
   };
 
   return (
-    <div className="animate-fadeIn p-10 xl:px-24 dark:bg-night">
+    <div className="dark:bg-night animate-fadeIn p-10 xl:px-24">
       <Nav onClickShoppingBtn={() => setIsSidebarOpen(true)} />
-      <ShoeDetail />
-      <NewArrivalsSection items={SHOE_LIST} />
+      <ShoeDetail shoe={currentShoe} />
+      <NewArrivalsSection items={SHOE_LIST} onClickCard={setCurrentShoe} />
       <Sidebar
         isOpen={isSidebarOpen}
         onClickClose={() => setIsSidebarOpen(false)}
       >
-        <Cart cartItems={FAKE_CART_ITEMS} />
+        <Cart cartItems={[]} />
       </Sidebar>
 
       <div className="fixed bottom-4 right-4">
