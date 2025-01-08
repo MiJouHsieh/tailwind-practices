@@ -28,6 +28,16 @@ export function App() {
     }
   };
 
+  const removeFromCart = (productId) => {
+    console.log("***productId", productId);
+    const updatedCartItems = [...cartItems];
+    const existingItemIndex = cartItems.findIndex(
+      (item) => item.product.id === productId,
+    );
+    updatedCartItems.splice(existingItemIndex, 1);
+    setCartItems(updatedCartItems);
+  };
+
   useEffect(() => {
     const isDarkMode = localStorage.getItem("isDarkMode");
     if (isDarkMode === "true") {
@@ -53,7 +63,7 @@ export function App() {
         isOpen={isSidebarOpen}
         onClickClose={() => setIsSidebarOpen(false)}
       >
-        <Cart cartItems={cartItems} />
+        <Cart cartItems={cartItems} onClickTrash={removeFromCart} />
       </Sidebar>
 
       <div className="fixed bottom-4 right-4">

@@ -1,5 +1,5 @@
 import { CartItem } from "./CartItem";
-export function Cart({ cartItems }) {
+export function Cart({ cartItems, onClickTrash }) {
   return (
     <>
       <h2 className="mb-5 text-4xl font-bold dark:text-white">Cart</h2>
@@ -12,7 +12,7 @@ export function Cart({ cartItems }) {
         {cartItems.length > 0 ? (
           cartItems.map((cartItem) => (
             <li key={cartItem.product.id}>
-              <CartItem item={cartItem} />
+              <CartItem item={cartItem} onClickTrash={onClickTrash} />
             </li>
           ))
         ) : (
