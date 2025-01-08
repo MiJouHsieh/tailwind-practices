@@ -1,10 +1,10 @@
-import { CiTrash } from "react-icons/ci"; 
+import { CiTrash } from "react-icons/ci";
 import { Select } from "../components/Select";
 import { QTY, SIZES } from "../constant";
 
-export function CartItem ({ item : {product, qty, size} }) {
+export function CartItem({ item: { product, qty, size } }) {
   return (
-    <div className="cursor-pointer space-y-2 bg-gray-50 p-2 hover:bg-[#DAFFA2] dark:bg-transparent dark:hover:bg-night-50">
+    <div className="dark:hover:bg-night-50 cursor-pointer space-y-2 bg-gray-50 p-2 hover:bg-[#DAFFA2] dark:bg-transparent">
       <div className="flex space-x-2">
         {/* image */}
         <img className="h-24" src={product.src} alt="product in cart" />
@@ -25,7 +25,7 @@ export function CartItem ({ item : {product, qty, size} }) {
               value={size}
               title=""
               options={SIZES}
-              className={"w-16 p-1"}
+              className={"w-16 p-1 pl-2"}
             />
           </div>
           <div>
@@ -34,7 +34,7 @@ export function CartItem ({ item : {product, qty, size} }) {
               value={qty}
               title=""
               options={QTY}
-              className={"pl-2l w-16 p-1"}
+              className={"w-16 p-1 pl-2"}
             />
           </div>
         </div>

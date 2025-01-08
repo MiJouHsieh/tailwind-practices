@@ -2,8 +2,8 @@ import { Select } from "../components/Select";
 import { QTY, SIZES } from "../constant";
 import { useState } from "react";
 
-export function ShoeDetail({shoe, onClickAdd}) {
-  const [form, setForm] = useState({size:null, qty:null})
+export function ShoeDetail({ shoe, onClickAdd }) {
+  const [form, setForm] = useState({ size: null, qty: null });
   return (
     <div className="flex flex-col space-y-4 lg:flex-row-reverse dark:text-white">
       {/* Shoe image */}
