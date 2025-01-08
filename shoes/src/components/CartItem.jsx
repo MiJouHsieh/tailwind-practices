@@ -22,7 +22,7 @@ export function CartItem ({ item : {product, qty, size} }) {
           <div>
             <div className="font-bold dark:text-white">SIZE</div>
             <Select
-              defaultValue={size}
+              value={size}
               title=""
               options={SIZES}
               className={"w-16 p-1"}
@@ -31,7 +31,7 @@ export function CartItem ({ item : {product, qty, size} }) {
           <div>
             <div className="font-bold dark:text-white">QTY</div>
             <Select
-              defaultValue={qty}
+              value={qty}
               title=""
               options={QTY}
               className={"pl-2l w-16 p-1"}
